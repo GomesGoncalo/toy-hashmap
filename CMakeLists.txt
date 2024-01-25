@@ -1,0 +1,30 @@
+cmake_minimum_required(VERSION 3.15.0 FATAL_ERROR)
+project(hashmaplib LANGUAGES CXX DESCRIPTION "simple hashmap implementation")
+
+set(CMAKE_PROJECT_VERSION_MAJOR 1)
+set(CMAKE_PROJECT_VERSION_MINOR 0)
+set(CMAKE_PROJECT_VERSION_PATCH 0)
+set(CMAKE_PROJECT_VERSION ${CMAKE_PROJECT_VERSION_MAJOR}.${CMAKE_PROJECT_VERSION_MINOR}.${CMAKE_PROJECT_VERSION_PATCH})
+
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED TRUE)
+set(CMAKE_EXPORT_COMPILE_COMMANDS TRUE)
+set(CMAKE_SKIP_BUILD_RPATH FALSE)
+set(CMAKE_BUILD_WITH_INSTALL_RPATH FALSE)
+set(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)
+set(CMAKE_INSTALL_PREFIX ${CMAKE_BINARY_DIR}/install)
+set(CMAKE_MODULE_PATH ${CMAKE_BINARY_DIR} ${CMAKE_MODULE_PATH})
+set(CMAKE_PREFIX_PATH ${CMAKE_BINARY_DIR} ${CMAKE_PREFIX_PATH})
+
+option(BUILD_TESTING "Build tests" TRUE)
+option(BUILD_SHARED_LIBS "Build shared libraries" FALSE)
+
+include(GNUInstallDirs)
+include(CMakePackageConfigHelpers)
+include(InstallRequiredSystemLibraries)
+include(${CMAKE_SOURCE_DIR}/cmake/clang_format.cmake)
+include(${CMAKE_SOURCE_DIR}/cmake/compiler_options.cmake)
+include(${CMAKE_SOURCE_DIR}/cmake/cppcheck.cmake)
+include(${CMAKE_SOURCE_DIR}/cmake/dependencies.cmake)
+
+add_subdirectory(project)
